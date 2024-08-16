@@ -16,21 +16,16 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-
     - name: Set up .NET
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '6.0.x'
 
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore C:\Users\tiaan\Documents\CTU\2nd Year\DOES newPipeline\CI-CD-Ewan-Pipeline\CI-CD-Ewan-Pipeline\Helloworld\Helloworld.csproj
 
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build C:\Users\tiaan\Documents\CTU\2nd Year\DOES newPipeline\CI-CD-Ewan-Pipeline\CI-CD-Ewan-Pipeline\Helloworld\Helloworld.csproj --configuration Release --no-restore
 
   test:
     runs-on: windows-latest
@@ -40,18 +35,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-
     - name: Set up .NET
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '6.0.x'
 
     - name: Run tests
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test C:\Users\tiaan\Documents\CTU\2nd Year\DOES newPipeline\CI-CD-Ewan-Pipeline\CI-CD-Ewan-Pipeline\Helloworld\Helloworld.csproj --no-build --verbosity normal
 
   deploy:
     runs-on: windows-latest
@@ -61,12 +51,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-
     - name: Deploy to staging
       run: echo "Deploying to staging environment..."
-      # Here you can add the actual deployment steps
-      # e.g., run: dotnet publish --configuration Release --output <staging_directory>
+      # Add deployment steps here
+      # e.g., run: dotnet publish ../../src/YourProject/YourProject.csproj --configuration Release --output <staging_directory>
