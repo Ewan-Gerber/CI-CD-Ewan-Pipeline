@@ -16,6 +16,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+
     - name: Set up .NET
       uses: actions/setup-dotnet@v3
       with:
@@ -35,6 +40,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+
     - name: Set up .NET
       uses: actions/setup-dotnet@v3
       with:
@@ -50,6 +60,11 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
 
     - name: Deploy to staging
       run: echo "Deploying to staging environment..."
